@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:latest
 
 LABEL maintainer Norman Novaes <novaes+docker@mailbox.org>
 
