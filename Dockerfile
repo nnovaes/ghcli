@@ -13,7 +13,7 @@ WORKDIR /ghcli
 ENV gitcli_version=1.4.0
 RUN wget https://github.com/cli/cli/releases/download/v${gitcli_version}/gh_${gitcli_version}_linux_386.tar.gz -O ghcli.tar.gz
 
-RUN echo "cc4ed23c92933f8823537b2bed98f182057f8c5545b9e6a417d3d459db757438  ghcli.tar.gz" | sha256sum -c - 
+RUN echo "cc4ed23c92933f8823537b2bed98f182057f8c5545b9e6a417d3d459db757438  ghcli/ghcli.tar.gz" | sha256sum -c - 
 RUN tar --strip-components=1 -xf ghcli.tar.gz
 
 
