@@ -12,9 +12,9 @@ VOLUME /ghcli
 WORKDIR /ghcli
 ENV gitcli_version=1.4.0
 ADD checksums.txt .
-RUN wget https://github.com/cli/cli/releases/download/v${gitcli_version}/gh_${gitcli_version}_linux_386.tar.gz -O gh_${gitcli_version}_linux_386.tar.gz
-RUN sha256sum -c checksums.txt
-RUN tar --strip-components=1 -xf gh_${gitcli_version}_linux_386.tar.gz
+RUN wget https://github.com/cli/cli/releases/download/v${gitcli_version}/gh_${gitcli_version}_linux_386.tar.gz -O gh_${gitcli_version}_linux_386.tar.gz && \
+     sha256sum -c checksums.txt && \ 
+     tar --strip-components=1 -xf gh_${gitcli_version}_linux_386.tar.gz
 
 
 ENTRYPOINT ["bin/gh"]
