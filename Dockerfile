@@ -1,6 +1,6 @@
 FROM alpine
 
-LABEL maintainer Bill Wang <novaes+docker@mailbox.org>
+LABEL maintainer Norman Novaes <novaes+docker@mailbox.org>
 
 RUN apk --update add git less openssh && \
     rm -rf /var/lib/apt/lists/* && \
