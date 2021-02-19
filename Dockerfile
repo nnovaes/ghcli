@@ -10,12 +10,14 @@ RUN apk --update add git less openssh && \
 
 VOLUME /ghcli
 WORKDIR /ghcli
-ENV gitcli_version=1.4.0
+ENV gitcli_version=1.6.1
 ADD checksums.txt .
 RUN wget https://github.com/cli/cli/releases/download/v${gitcli_version}/gh_${gitcli_version}_linux_386.tar.gz -O gh_${gitcli_version}_linux_386.tar.gz && \
-     sha256sum -c checksums.txt && \ 
-     tar --strip-components=1 -xf gh_${gitcli_version}_linux_386.tar.gz
+     sha256sum -c checksums.txt && \
+    mv gh_${gitcli_version}_linux_386.tar.gz / && cd / && \
+    tar --strip-components=1 -xf gh_${gitcli_version}_linux_386.tar.gz && \
+    rm gh_${gitcli_version}_linux_386.tar.gz
 
 
-ENTRYPOINT ["bin/gh"]
+ENTRYPOINT ["/bin/gh"]
 CMD ["--help"]
